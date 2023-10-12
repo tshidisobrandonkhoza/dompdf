@@ -1,12 +1,15 @@
-<!DOCTYPE html> 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+
+//include autoloader
+require_once 'dompdf/autoload.inc.php';
+//reference the Dompdf namespace
+use Dompdf\Dompdf;
+//instatiate and use the dompdf class
+$dompdf = new Dompdf();
+$dompdf->loadHtml('hello world');
+//set up the pepersize
+$dompdf->setPaper('A4');
+//render the HTML as PDF
+$dompdf->render();
+//output the generated PDF to Browser
+$dompdf->stream();
